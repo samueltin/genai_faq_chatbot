@@ -1,0 +1,11 @@
+azure-search-documents
+azure-identity
+langchain-community
+langchain-openai
+langchain-ollama
+python-dotenv
+asyncio
+streamlit
+watchdog
+langchain
+ollama
