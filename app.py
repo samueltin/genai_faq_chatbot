@@ -55,7 +55,7 @@ def create_chat_llm():
             temperature=0
         )
     elif llm_provider == "ollama":
-        return ChatOllama(model="deepseek-r1")
+        return ChatOllama(model="gemma3:12b", temperature=0)
 
 def query_llm(user_query, k=1):
 
