@@ -1,8 +1,8 @@
 import streamlit as st
 import app as app
 
-st.title("Chat Application")
-st.write("This is a simple chat application built with Streamlit.")
+st.title("Insurance FAQ Chatbot")
+st.write("Ask your questions about insurance policies, claims, and more!")
 
 # Initialize chat history in session state
 if "chat_history" not in st.session_state:
@@ -13,7 +13,7 @@ st.subheader("Chat History")
 if st.session_state.chat_history:
     for entry in st.session_state.chat_history:
         st.markdown(f"**You:** {entry['user']}")
-        st.markdown(f"**LLM:** {entry['llm']}")
+        st.markdown(f"**Bot:** {entry['bot']}")
 else:
     st.info("No messages yet. Ask your first question below.")
 
@@ -28,7 +28,7 @@ with st.form("chat_form"):
         # Store question/response in history
         st.session_state.chat_history.append({
             "user": text.strip(),
-            "llm": response.content if hasattr(response, "content") else str(response)
+            "bot": response.content if hasattr(response, "content") else str(response)
         })
 
         st.session_state.user_input = ""
