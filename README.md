@@ -64,15 +64,29 @@ AZURE_SEARCH_ADMIN_KEY=
 LLM_PROVIDER=azure_openai  # or openai, ollama
 ```
 ### 4. Load FAQ data into vector store
+In __main__ of knowledge_base.py, uncomment the line that call "create_vector_store()"
+```bash
+if __name__ == "__main__":
+    # create_vector_store()  # Uncomment to create the vector store if not already created
+
+    # Example usage
+    query = "Does homeowners insurance cover garage doors?"
+    results = similarity_search(query, k=4)
+    
+    for doc in results:
+        print(f"Document: {doc.page_content}\n")
+        print(f"Metadata: {doc.metadata}\n")
+```
+Run knowledge_base.py
+
 ```bash
 python
->>> from your_module import create_vector_store
->>> create_vector_store()
+>>> python knowledge_base.py
 ```
 ### 5. Test locally
 ```bash
 python
->>> from your_module import query_llm
+>>> from app import query_llm
 >>> print(query_llm("Does homeowners insurance cover garage doors?", k=4).content)
 ```
 
