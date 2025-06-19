@@ -38,6 +38,14 @@ A next‑generation FAQ chatbot for insurance, built with **RAG architecture** u
 - Azure AI Search
 - Azure OpenAI or OpenAI or Ollama
 
+To simply the deployment of Azure AI Search, Azure OpenAI, embedding and gpt model, run the following terraform command:
+
+```bash
+cd infra
+terraform init
+terraform apply
+```
+
 ## 📦 Getting Started
 
 ### 1. Clone the repo
@@ -58,7 +66,7 @@ Create a `.env` file with:
 ```env
 AZURE_OPENAI_ENDPOINT=
 AZURE_OPENAI_API_KEY=
-AZURE_OPENAI_CHAT_DEPLOYMENT=
+LLM_PROVIDER=
 AZURE_SEARCH_ENDPOINT=
 AZURE_SEARCH_ADMIN_KEY=
 LLM_PROVIDER=azure_openai  # or openai, ollama
