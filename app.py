@@ -71,6 +71,8 @@ def query_llm(user_query, k=1):
     # Join the page content of the returned documents
     docs = " ".join([d.page_content for d in documents])
 
+    print(f"Number of documents returned: {len(documents)}")
+
     chat = create_chat_llm()
 
     prompt = PromptTemplate(
@@ -93,5 +95,5 @@ def query_llm(user_query, k=1):
 if __name__ == "__main__":
     # user_query = "Is Garage Door Covered By Homeowners Insurance?"
     user_query = "Does homeowners insurance cover garage doors?"
-    response = query_llm(user_query=user_query, k=10)
+    response = query_llm(user_query=user_query, k=4)
     print(response.content)
